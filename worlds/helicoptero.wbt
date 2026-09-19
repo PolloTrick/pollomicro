@@ -1,0 +1,56 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/BakelitePlastic.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/BrushedAluminium.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.05119680741208242 -0.008976824486424938 0.9986482381364071 3.1031227705019777
+  position 1.4708269518723713 -0.20412296129992644 0.351351460808778
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation 0 0 0.08
+  children [
+    Propeller {
+      shaftAxis 0 0 1
+      device RotationalMotor {
+        name "MOTOR1"
+      }
+      fastHelix Solid {
+        children [
+          Shape {
+            appearance BrushedAluminium {
+            }
+            geometry DEF FORMA_HELICE Box {
+              size 0.01 0.2 0.01
+            }
+          }
+        ]
+        boundingObject USE FORMA_HELICE
+      }
+    }
+    Shape {
+      appearance BakelitePlastic {
+      }
+      geometry DEF FORMA_HELICOPTERO Box {
+        size 0.1 0.2 0.1
+      }
+    }
+  ]
+  boundingObject USE FORMA_HELICOPTERO
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "VELOCIDAD_CONSTANTE"
+}

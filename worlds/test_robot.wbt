@@ -1,0 +1,42 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.19554180209258018 0.22934015658861678 0.9535022266414982 1.4592244756002737
+  position -0.09805797667727323 -0.5216754040149303 0.2656154265621626
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation 0 0 0.06
+  children [
+    Solid {
+      translation 0 0 0.01
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.878431 1 0.262745
+            metalness 0
+          }
+          geometry DEF CUERPO_CARRO Box {
+            size 0.1 0.1 0.05
+          }
+        }
+      ]
+      boundingObject USE CUERPO_CARRO
+      physics Physics {
+        density -1
+        mass 1
+      }
+    }
+  ]
+}
